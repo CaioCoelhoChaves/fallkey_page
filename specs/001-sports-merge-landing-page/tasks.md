@@ -17,8 +17,8 @@
 
 **Purpose**: Project initialization, asset registration, and shared configuration
 
-- [ ] T001 Register `url_launcher: ^6.3.0` dependency and `assets/sports_merge/` asset paths in `pubspec.yaml`
-- [ ] T002 [P] Sync and configure icon, poster, and store badge assets in `assets/sports_merge/`
+- [X] T001 Register `url_launcher: ^6.3.0` dependency and `assets/sports_merge/` asset paths in `pubspec.yaml`
+- [X] T002 [P] Sync and configure icon, poster, and store badge assets in `assets/sports_merge/`
 
 ---
 
@@ -28,12 +28,12 @@
 
 ⚠️ **CRITICAL**: No user story work can begin until this foundational phase is complete
 
-- [ ] T003 [P] Create domain entities (`GamePresentation` with id non-null slug 'sports-merge' name non-empty 'Sports Merge' packageName reverse domain 'com.fallkey.sports_merge', `LocalizationProfile` with languageCode 'pt' or 'en' and 3 to 5 features, `StoreDestination` with platform StorePlatform url String? badgeAssetPath and isAvailable bool, `ShowcaseMedia` with posterAssetPath and screenshots, `FeatureHighlight`) and bilingual catalog in `lib/pages/sports_merge/models/sports_merge_content.dart`
-- [ ] T004 [P] Unit tests for bilingual content catalog integrity, fallback resolution, and store URLs in `test/pages/sports_merge/sports_merge_content_test.dart`
-- [ ] T005 Register `/sports-merge` route with query parameter `lang` handling and path URL strategy in `lib/main.dart`
-- [ ] T006 Create base stateful page structure and scaffold in `lib/pages/sports_merge/sports_merge_page.dart`
-- [ ] T007 [P] Implement reusable store badge button widget with semantics and focus feedback in `lib/pages/sports_merge/widgets/components/store_badge_button.dart`
-- [ ] T008 [P] Implement footer section with copyright and links to `/sports-merge/privacy` and `/sports-merge/support` in `lib/pages/sports_merge/widgets/sections/sports_merge_footer_section.dart`
+- [X] T003 [P] Create domain entities (`GamePresentation` with id non-null slug 'sports-merge' name non-empty 'Sports Merge' packageName reverse domain 'com.fallkey.sports_merge', `LocalizationProfile` with languageCode 'pt' or 'en' and 3 to 5 features, `StoreDestination` with platform StorePlatform url String? badgeAssetPath and isAvailable bool, `ShowcaseMedia` with posterAssetPath and screenshots, `FeatureHighlight`) and bilingual catalog in `lib/pages/sports_merge/models/sports_merge_content.dart`
+- [X] T004 [P] Unit tests for bilingual content catalog integrity, fallback resolution, and store URLs in `test/pages/sports_merge/sports_merge_content_test.dart`
+- [X] T005 Register `/sports-merge` route with query parameter `lang` handling and path URL strategy in `lib/main.dart`
+- [X] T006 Create base stateful page structure and scaffold in `lib/pages/sports_merge/sports_merge_page.dart`
+- [X] T007 [P] Implement reusable store badge button widget with semantics and focus feedback in `lib/pages/sports_merge/widgets/components/store_badge_button.dart`
+- [X] T008 [P] Implement footer section with copyright and links to `/sports-merge/privacy` and `/sports-merge/support` in `lib/pages/sports_merge/widgets/sections/sports_merge_footer_section.dart`
 
 **Checkpoint**: Foundation ready - data models, routing, and base shared components are fully functional and tested.
 
@@ -47,15 +47,15 @@
 
 ### Tests for User Story 1
 
-- [ ] T009 [P] [US1] Widget test verifying Hero section rendering and Google Play Store link redirection in `test/pages/sports_merge/sports_merge_page_test.dart`
+- [X] T009 [P] [US1] Widget test verifying Hero section rendering and Google Play Store link redirection in `test/pages/sports_merge/sports_merge_page_test.dart`
 
 ### Implementation for User Story 1
 
-- [ ] T010 [P] [US1] Implement Hero section displaying game logo, title, slogan, and primary CTA buttons in `lib/pages/sports_merge/widgets/sections/sports_merge_hero_section.dart`
-- [ ] T011 [P] [US1] Implement Media Showcase section displaying static poster fallback image in < 1.5s and gameplay screenshots in `lib/pages/sports_merge/widgets/sections/sports_merge_media_section.dart`
-- [ ] T012 [P] [US1] Implement Features highlights section displaying gameplay selling points in `lib/pages/sports_merge/widgets/sections/sports_merge_features_section.dart`
-- [ ] T013 [US1] Implement Store Badges section invoking `url_launcher` for Google Play Store URL (`https://play.google.com/store/apps/details?id=com.fallkey.sports_merge`) in `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart`
-- [ ] T014 [US1] Integrate Hero, Media, Features, and Store Badges sections into `lib/pages/sports_merge/sports_merge_page.dart`
+- [X] T010 [P] [US1] Implement Hero section displaying game logo, title, slogan, and primary CTA buttons in `lib/pages/sports_merge/widgets/sections/sports_merge_hero_section.dart`
+- [X] T011 [P] [US1] Implement Media Showcase section displaying static poster fallback image in < 1.5s and gameplay screenshots in `lib/pages/sports_merge/widgets/sections/sports_merge_media_section.dart`
+- [X] T012 [P] [US1] Implement Features highlights section displaying gameplay selling points in `lib/pages/sports_merge/widgets/sections/sports_merge_features_section.dart`
+- [X] T013 [US1] Implement Store Badges section invoking `url_launcher` for Google Play Store URL (`https://play.google.com/store/apps/details?id=com.fallkey.sports_merge`) in `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart`
+- [X] T014 [US1] Integrate Hero, Media, Features, and Store Badges sections into `lib/pages/sports_merge/sports_merge_page.dart`
 
 **Checkpoint**: User Story 1 is completely testable and functional as the standalone MVP.
 
@@ -69,12 +69,12 @@
 
 ### Tests for User Story 2
 
-- [ ] T015 [P] [US2] Widget test for language selector toggle and deep link query param resolution in `test/pages/sports_merge/sports_merge_page_test.dart`
+- [X] T015 [P] [US2] Widget test for language selector toggle and deep link query param resolution in `test/pages/sports_merge/sports_merge_page_test.dart`
 
 ### Implementation for User Story 2
 
-- [ ] T016 [P] [US2] Implement language toggle `SegmentedButton` (`PT` / `EN`) in `lib/pages/sports_merge/widgets/components/language_selector.dart`
-- [ ] T017 [US2] Integrate language toggle and URL query synchronization with `GoRouter` in `lib/pages/sports_merge/sports_merge_page.dart`
+- [X] T016 [P] [US2] Implement language toggle `SegmentedButton` (`PT` / `EN`) in `lib/pages/sports_merge/widgets/components/language_selector.dart`
+- [X] T017 [US2] Integrate language toggle and URL query synchronization with `GoRouter` in `lib/pages/sports_merge/sports_merge_page.dart`
 
 **Checkpoint**: User Stories 1 and 2 work independently with full bilingual support.
 
@@ -88,12 +88,12 @@
 
 ### Tests for User Story 3
 
-- [ ] T018 [P] [US3] Responsive layout widget tests simulating mobile (360x640) and desktop (1920x1080) viewports in `test/pages/sports_merge/sports_merge_page_test.dart`
+- [X] T018 [P] [US3] Responsive layout widget tests simulating mobile (360x640) and desktop (1920x1080) viewports in `test/pages/sports_merge/sports_merge_page_test.dart`
 
 ### Implementation for User Story 3
 
-- [ ] T019 [US3] Implement responsive container structure with `LayoutBuilder` and `ConstrainedBox` (`maxWidth: 1200px`) in `lib/pages/sports_merge/sports_merge_page.dart`
-- [ ] T020 [P] [US3] Adapt touch targets (min 48px height) and full-width stacked buttons for mobile viewports in `lib/pages/sports_merge/widgets/sections/sports_merge_hero_section.dart` and `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart`
+- [X] T019 [US3] Implement responsive container structure with `LayoutBuilder` and `ConstrainedBox` (`maxWidth: 1200px`) in `lib/pages/sports_merge/sports_merge_page.dart`
+- [X] T020 [P] [US3] Adapt touch targets (min 48px height) and full-width stacked buttons for mobile viewports in `lib/pages/sports_merge/widgets/sections/sports_merge_hero_section.dart` and `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart`
 
 **Checkpoint**: User Stories 1, 2, and 3 are fully responsive and visually validated.
 
@@ -107,11 +107,11 @@
 
 ### Tests for User Story 4
 
-- [ ] T021 [P] [US4] Widget test verifying Apple App Store button interaction and "Coming soon" notice in `test/pages/sports_merge/sports_merge_page_test.dart`
+- [X] T021 [P] [US4] Widget test verifying Apple App Store button interaction and "Coming soon" notice in `test/pages/sports_merge/sports_merge_page_test.dart`
 
 ### Implementation for User Story 4
 
-- [ ] T022 [US4] Implement Apple App Store badge handling with SnackBar feedback and configurable URL readiness in `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart`
+- [X] T022 [US4] Implement Apple App Store badge handling with SnackBar feedback and configurable URL readiness in `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart`
 
 **Checkpoint**: All user stories (US1 through US4) are fully functional and integrated.
 
@@ -121,9 +121,9 @@
 
 **Purpose**: Accessibility verification, end-to-end suite validation, and execution against the quickstart guide
 
-- [ ] T023 [P] Audit WCAG 2.1 AA accessibility (Semantics, contrast ratio, keyboard focus rings) in `lib/pages/sports_merge/sports_merge_page.dart`
-- [ ] T024 Run complete test suite via `flutter test test/pages/sports_merge/`
-- [ ] T025 Execute end-to-end quickstart validation scenarios according to `specs/001-sports-merge-landing-page/quickstart.md`
+- [X] T023 [P] Audit WCAG 2.1 AA accessibility (Semantics, contrast ratio, keyboard focus rings) in `lib/pages/sports_merge/sports_merge_page.dart`
+- [X] T024 Run complete test suite via `flutter test test/pages/sports_merge/`
+- [X] T025 Execute end-to-end quickstart validation scenarios according to `specs/001-sports-merge-landing-page/quickstart.md`
 
 ---
 

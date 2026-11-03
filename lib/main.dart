@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'pages/under_construction_page.dart';
 import 'pages/privacy_policy_page.dart';
 import 'pages/sports_merge_support_page.dart';
+import 'pages/sports_merge/sports_merge_page.dart';
 
 void main() {
   usePathUrlStrategy();
@@ -24,6 +25,14 @@ class FallKeyApp extends StatelessWidget {
           path: '/',
           builder: (BuildContext context, GoRouterState state) {
             return const UnderConstructionPage();
+          },
+        ),
+        GoRoute(
+          path: '/sports-merge',
+          name: 'sports-merge',
+          builder: (BuildContext context, GoRouterState state) {
+            final lang = state.uri.queryParameters['lang'];
+            return SportsMergePage(initialLang: lang);
           },
         ),
         GoRoute(
