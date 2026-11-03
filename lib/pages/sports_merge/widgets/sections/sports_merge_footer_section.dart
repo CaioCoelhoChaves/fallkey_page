@@ -16,9 +16,9 @@ class SportsMergeFooterSection extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 24),
       decoration: const BoxDecoration(
-        color: Color(0xFF07080A),
+        color: Color(0xFF0A0F1D),
         border: Border(
-          top: BorderSide(color: Color(0xFF1F2430), width: 1),
+          top: BorderSide(color: Color(0x33FFFFFF), width: 1),
         ),
       ),
       child: Center(
@@ -39,7 +39,7 @@ class SportsMergeFooterSection extends StatelessWidget {
                     child: TextButton(
                       onPressed: () => context.go('/sports-merge/privacy'),
                       style: TextButton.styleFrom(
-                        foregroundColor: const Color(0xFF9AA5B8),
+                        foregroundColor: const Color(0xFF94A3B8),
                         textStyle: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
@@ -50,7 +50,7 @@ class SportsMergeFooterSection extends StatelessWidget {
                   ),
                   const Text(
                     '•',
-                    style: TextStyle(color: Color(0xFF4A5568)),
+                    style: TextStyle(color: Color(0xFF334155)),
                   ),
                   Semantics(
                     button: true,
@@ -60,7 +60,7 @@ class SportsMergeFooterSection extends StatelessWidget {
                         '/sports-merge/support?lang=${profile.languageCode}',
                       ),
                       style: TextButton.styleFrom(
-                        foregroundColor: const Color(0xFF9AA5B8),
+                        foregroundColor: const Color(0xFF94A3B8),
                         textStyle: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
@@ -75,7 +75,7 @@ class SportsMergeFooterSection extends StatelessWidget {
               Text(
                 profile.copyrightText,
                 style: const TextStyle(
-                  color: Color(0xFF718096),
+                  color: Color(0xFF64748B),
                   fontSize: 13,
                 ),
                 textAlign: TextAlign.center,

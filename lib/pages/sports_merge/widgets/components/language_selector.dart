@@ -18,9 +18,9 @@ class LanguageSelector extends StatelessWidget {
       label: 'Alternar idioma / Change language',
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFF141721),
+          color: const Color(0xFF1E293B).withAlpha(200), // Slate translucent
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: const Color(0xFF2C3246)),
+          border: Border.all(color: const Color(0x33FFFFFF)), // Glassmorphism
         ),
         padding: const EdgeInsets.all(4),
         child: Row(
@@ -56,7 +56,7 @@ class LanguageSelector extends StatelessWidget {
       selected: isSelected,
       label: semanticLabel,
       child: Material(
-        color: isSelected ? const Color(0xFF2E6FF2) : Colors.transparent,
+        color: isSelected ? const Color(0xFF06B6D4) : Colors.transparent, // Cyan Neon
         borderRadius: BorderRadius.circular(16),
         child: InkWell(
           onTap: () => onLanguageChanged(code),
@@ -68,9 +68,9 @@ class LanguageSelector extends StatelessWidget {
             child: Text(
               label,
               style: TextStyle(
-                color: isSelected ? Colors.white : const Color(0xFF8C9BAE),
+                color: isSelected ? const Color(0xFF0F172A) : const Color(0xFF94A3B8),
                 fontSize: 13,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+                fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
               ),
             ),
           ),

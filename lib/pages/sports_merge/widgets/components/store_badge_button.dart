@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Reusable store badge button complying strictly with official Google Play
+/// Lockups & Badges and Apple App Store Marketing Guidelines.
 class StoreBadgeButton extends StatefulWidget {
   final String badgeAssetPath;
   final String label;
@@ -42,20 +44,20 @@ class _StoreBadgeButtonState extends State<StoreBadgeButton> {
             1.0,
           ),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: _isFocused
-                  ? Colors.blueAccent
+                  ? const Color(0xFF06B6D4) // Cyan Neon focus ring
                   : _isHovered
-                      ? Colors.white54
+                      ? const Color(0x6606B6D4)
                       : Colors.transparent,
               width: 2,
             ),
             boxShadow: _isHovered
                 ? [
                     BoxShadow(
-                      color: Colors.black.withAlpha(128),
-                      blurRadius: 12,
+                      color: const Color(0xFF06B6D4).withAlpha(40),
+                      blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
                   ]
@@ -63,11 +65,11 @@ class _StoreBadgeButtonState extends State<StoreBadgeButton> {
           ),
           child: Material(
             color: Colors.transparent,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(8),
             clipBehavior: Clip.antiAlias,
             child: InkWell(
               onTap: widget.onPressed,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(8),
               child: ConstrainedBox(
                 constraints: BoxConstraints(
                   minHeight: 48,
@@ -83,9 +85,9 @@ class _StoreBadgeButtonState extends State<StoreBadgeButton> {
                       height: widget.height,
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF16181D),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.white24),
+                        color: const Color(0xFF1E293B),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: const Color(0x33FFFFFF)),
                       ),
                       alignment: Alignment.center,
                       child: Text(

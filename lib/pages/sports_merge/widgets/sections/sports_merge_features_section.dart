@@ -28,7 +28,8 @@ class SportsMergeFeaturesSection extends StatelessWidget {
                 profile.featuresTitle,
                 style: TextStyle(
                   fontSize: isMobile ? 22 : 32,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: -0.5,
                   color: Colors.white,
                 ),
                 textAlign: TextAlign.center,
@@ -38,7 +39,7 @@ class SportsMergeFeaturesSection extends StatelessWidget {
                 width: 60,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF2E6FF2),
+                  color: const Color(0xFF06B6D4), // Cyan Neon
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -56,19 +57,30 @@ class SportsMergeFeaturesSection extends StatelessWidget {
                       crossAxisCount: crossAxisCount,
                       mainAxisSpacing: 16,
                       crossAxisSpacing: 16,
-                      mainAxisExtent: isMobile ? 148 : 130,
+                      mainAxisExtent: isMobile ? 152 : 136,
                     ),
                     itemBuilder: (context, index) {
                       final feature = profile.features[index];
+                      final isEven = index.isEven;
+
                       return Container(
-                        padding: EdgeInsets.all(isMobile ? 14 : 18),
+                        padding: EdgeInsets.all(isMobile ? 16 : 20),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF11141C),
-                          borderRadius: BorderRadius.circular(16),
+                          color: const Color(0xFF1E293B).withAlpha(220), // Translucent Slate
+                          borderRadius: BorderRadius.circular(24), // 24px radius
                           border: Border.all(
-                            color: const Color(0xFF1E2433),
-                            width: 1,
+                            color: const Color(0x33FFFFFF), // Glassmorphism subtle border
+                            width: 1.5,
                           ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: isEven
+                                  ? const Color(0xFF06B6D4).withAlpha(25)
+                                  : const Color(0xFFF97316).withAlpha(25),
+                              blurRadius: 18,
+                              offset: const Offset(0, 6),
+                            ),
+                          ],
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,12 +88,22 @@ class SportsMergeFeaturesSection extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF1B2A4A),
-                                borderRadius: BorderRadius.circular(12),
+                                color: isEven
+                                    ? const Color(0xFF06B6D4).withAlpha(35)
+                                    : const Color(0xFFF97316).withAlpha(35),
+                                borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  color: isEven
+                                      ? const Color(0xFF06B6D4).withAlpha(80)
+                                      : const Color(0xFFF97316).withAlpha(80),
+                                  width: 1,
+                                ),
                               ),
                               child: Icon(
                                 feature.icon,
-                                color: const Color(0xFF60A5FA),
+                                color: isEven
+                                    ? const Color(0xFF06B6D4)
+                                    : const Color(0xFFF97316),
                                 size: 28,
                               ),
                             ),
@@ -99,7 +121,7 @@ class SportsMergeFeaturesSection extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  const SizedBox(height: 4),
+                                  const SizedBox(height: 6),
                                   Text(
                                     feature.description,
                                     style: const TextStyle(

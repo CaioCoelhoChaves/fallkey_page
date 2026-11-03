@@ -7,7 +7,6 @@ import 'widgets/sections/sports_merge_footer_section.dart';
 import 'widgets/sections/sports_merge_hero_section.dart';
 import 'widgets/sections/sports_merge_media_section.dart';
 import 'widgets/sections/sports_merge_features_section.dart';
-import 'widgets/sections/sports_merge_store_badges_section.dart';
 
 class SportsMergePage extends StatefulWidget {
   final String? initialLang;
@@ -24,7 +23,6 @@ class SportsMergePage extends StatefulWidget {
 class _SportsMergePageState extends State<SportsMergePage> {
   late String _currentLang;
   final ScrollController _scrollController = ScrollController();
-  final GlobalKey _storeBadgesKey = GlobalKey();
 
   @override
   void initState() {
@@ -65,29 +63,12 @@ class _SportsMergePageState extends State<SportsMergePage> {
     }
   }
 
-  void _scrollToDownload() {
-    final context = _storeBadgesKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    } else {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final profile = SportsMergeContent.getProfile(_currentLang);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0B0C10),
+      backgroundColor: const Color(0xFF0F172A), // Deep Navy Future Sports Arena
       body: LayoutBuilder(
         builder: (context, constraints) {
           final isMobile = constraints.maxWidth < 600;
@@ -103,7 +84,6 @@ class _SportsMergePageState extends State<SportsMergePage> {
                     currentLanguageCode: _currentLang,
                     onLanguageChanged: _onLanguageChanged,
                   ),
-                  onDownloadTap: _scrollToDownload,
                 ),
                 SportsMergeMediaSection(
                   profile: profile,
@@ -112,13 +92,6 @@ class _SportsMergePageState extends State<SportsMergePage> {
                 SportsMergeFeaturesSection(
                   profile: profile,
                   isMobile: isMobile,
-                ),
-                KeyedSubtree(
-                  key: _storeBadgesKey,
-                  child: SportsMergeStoreBadgesSection(
-                    profile: profile,
-                    isMobile: isMobile,
-                  ),
                 ),
                 SportsMergeFooterSection(
                   profile: profile,

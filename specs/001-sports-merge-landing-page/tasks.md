@@ -189,3 +189,14 @@ Task: "Implement Features highlights section in lib/pages/sports_merge/widgets/s
 4. User Story 3 -> Mobile, tablet, desktop responsive layout
 5. User Story 4 -> Apple App Store presence and "Coming soon" notice
 6. Polish -> WCAG accessibility audit, full test suite pass, quickstart verification
+
+---
+
+## Phase 8: Convergence
+
+**Purpose**: Autonomously resolve specification gaps and clarify alignments for FAL-67 (single consolidated Hero store buttons, elimination of redundant bottom store section, and Future Sports Arena aesthetic)
+
+- [X] T026 Consolidar os botões de download das lojas oficiais (Google Play e Apple App Store) diretamente no Hero com proporções autênticas e ações funcionais per FR-002, FR-006, FR-007, FR-012, SC-001, SC-007 (contradicts)
+- [X] T027 Eliminar a seção redundante de badges de lojas no final da página (`SportsMergeStoreBadgesSection`) e a rolagem duplicada per FR-012 e SC-007 (contradicts)
+- [X] T028 Aplicar o design system Future Sports Arena (fundo Deep Navy `#0F172A`, cartões slate translúcido `#1E293B`, realces ciano neon `#06B6D4` e laranja vibrante `#F97316`, bordas glassmorphism `0x33FFFFFF`, raio 24px) per FR-011, SC-006 e SC-008 (partial)
+- [X] T029 Atualizar testes de widget para validar os botões oficiais no Hero, a ausência de seção duplicada e a conformidade visual per Constitution IV (partial)

@@ -6,12 +6,11 @@ import 'package:fallkey_page/pages/sports_merge/widgets/components/store_badge_b
 import 'package:fallkey_page/pages/sports_merge/widgets/sections/sports_merge_hero_section.dart';
 import 'package:fallkey_page/pages/sports_merge/widgets/sections/sports_merge_media_section.dart';
 import 'package:fallkey_page/pages/sports_merge/widgets/sections/sports_merge_features_section.dart';
-import 'package:fallkey_page/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart';
 import 'package:fallkey_page/pages/sports_merge/widgets/sections/sports_merge_footer_section.dart';
 
 void main() {
   group('SportsMergePage Widget Tests', () {
-    testWidgets('T009 [US1]: Renders Hero section, title, and Google Play Store button', (
+    testWidgets('T009 [US1]: Renders Hero section with consolidated store buttons and Future Sports Arena theme', (
       WidgetTester tester,
     ) async {
       tester.view.physicalSize = const Size(1280, 800);
@@ -25,15 +24,43 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      // Check section composition (Hero, Media, Features, Footer)
       expect(find.byType(SportsMergeHeroSection), findsOneWidget);
       expect(find.byType(SportsMergeMediaSection), findsOneWidget);
       expect(find.byType(SportsMergeFeaturesSection), findsOneWidget);
-      expect(find.byType(SportsMergeStoreBadgesSection), findsOneWidget);
       expect(find.byType(SportsMergeFooterSection), findsOneWidget);
 
+      // Verify Scaffold has Deep Navy Future Sports Arena background
+      final scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
+      expect(scaffold.backgroundColor, const Color(0xFF0F172A));
+
+      // Verify titles and content
       expect(find.text('Sports Merge'), findsOneWidget);
       expect(find.text(SportsMergeContent.pt.heroTitle), findsOneWidget);
-      expect(find.text(SportsMergeContent.pt.playStoreButtonLabel), findsWidgets);
+
+      // Verify that store badges are present directly inside the HeroSection and exactly once
+      final playBadgesInHero = find.descendant(
+        of: find.byType(SportsMergeHeroSection),
+        matching: find.byWidgetPredicate(
+          (widget) =>
+              widget is StoreBadgeButton &&
+              widget.label == SportsMergeContent.pt.playStoreButtonLabel,
+        ),
+      );
+      expect(playBadgesInHero, findsOneWidget);
+
+      final appleBadgesInHero = find.descendant(
+        of: find.byType(SportsMergeHeroSection),
+        matching: find.byWidgetPredicate(
+          (widget) =>
+              widget is StoreBadgeButton &&
+              widget.label == SportsMergeContent.pt.appStoreButtonLabel,
+        ),
+      );
+      expect(appleBadgesInHero, findsOneWidget);
+
+      // Verify zero duplicate store buttons across the page (FR-012, SC-007)
+      expect(find.byType(StoreBadgeButton), findsNWidgets(2));
     });
 
     testWidgets('T015 [US2]: Language toggle switches texts between PT and EN instantaneously', (
@@ -107,6 +134,7 @@ void main() {
 
       expect(tester.takeException(), isNull);
       expect(find.byType(SportsMergeHeroSection), findsOneWidget);
+      expect(find.byType(StoreBadgeButton), findsNWidgets(2));
     });
 
     testWidgets('T018 [US3]: Layout renders without overflow on desktop (1920x1080)', (
@@ -125,9 +153,10 @@ void main() {
 
       expect(tester.takeException(), isNull);
       expect(find.byType(SportsMergeHeroSection), findsOneWidget);
+      expect(find.byType(StoreBadgeButton), findsNWidgets(2));
     });
 
-    testWidgets('T021 [US4]: Clicking Apple App Store button displays coming soon notice', (
+    testWidgets('T021 [US4]: Clicking Apple App Store button in Hero displays coming soon notice', (
       WidgetTester tester,
     ) async {
       tester.view.physicalSize = const Size(1280, 900);
@@ -143,18 +172,15 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      // Find Apple Store badge button in store badges section
-      final appleButtons = find.byWidgetPredicate(
+      // Find Apple Store badge button in Hero section
+      final appleButton = find.byWidgetPredicate(
         (widget) =>
             widget is StoreBadgeButton &&
             widget.label == SportsMergeContent.pt.appStoreButtonLabel,
       );
-      expect(appleButtons, findsOneWidget);
+      expect(appleButton, findsOneWidget);
 
-      await tester.ensureVisible(appleButtons);
-      await tester.pumpAndSettle();
-
-      await tester.tap(appleButtons);
+      await tester.tap(appleButton);
       await tester.pump();
 
       // Verify SnackBar with notice is shown

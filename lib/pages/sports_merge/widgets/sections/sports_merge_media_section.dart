@@ -30,7 +30,7 @@ class SportsMergeMediaSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Main Poster Showcase
+              // Main Poster Showcase with Future Sports Arena Glassmorphism
               Semantics(
                 label: 'Sports Merge Gameplay Poster',
                 image: true,
@@ -40,28 +40,37 @@ class SportsMergeMediaSection extends StatelessWidget {
                     maxWidth: 720,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: const Color(0xFF1E293B), width: 2),
+                    borderRadius: BorderRadius.circular(24),
+                    border: Border.all(
+                      color: const Color(0x33FFFFFF),
+                      width: 1.5,
+                    ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withAlpha(150),
+                        color: const Color(0xFF06B6D4).withAlpha(50),
+                        blurRadius: 36,
+                        spreadRadius: 2,
+                        offset: const Offset(0, 8),
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withAlpha(180),
                         blurRadius: 28,
-                        offset: const Offset(0, 12),
+                        offset: const Offset(0, 16),
                       ),
                     ],
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(18),
+                    borderRadius: BorderRadius.circular(24),
                     child: Image.asset(
                       media.posterAssetPath,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => Container(
                         height: 300,
-                        color: const Color(0xFF131826),
+                        color: const Color(0xFF1E293B),
                         alignment: Alignment.center,
                         child: const Icon(
                           Icons.sports_soccer,
-                          color: Colors.white38,
+                          color: Color(0xFF06B6D4),
                           size: 64,
                         ),
                       ),
@@ -69,7 +78,7 @@ class SportsMergeMediaSection extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 36),
+              const SizedBox(height: 40),
 
               // Gameplay Screenshots Gallery
               Text(
@@ -77,12 +86,22 @@ class SportsMergeMediaSection extends StatelessWidget {
                     ? 'Capturas de Tela do Jogo'
                     : 'Gameplay Screenshots',
                 style: TextStyle(
-                  fontSize: isMobile ? 18 : 22,
-                  fontWeight: FontWeight.bold,
-                  color: const Color(0xFFE2E8F0),
+                  fontSize: isMobile ? 20 : 24,
+                  fontWeight: FontWeight.w800,
+                  color: Colors.white,
+                  letterSpacing: -0.3,
                 ),
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: 8),
+              Container(
+                width: 48,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF97316), // Vibrant Orange
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 24),
 
               SizedBox(
                 height: isMobile ? 260 : 360,
@@ -98,21 +117,28 @@ class SportsMergeMediaSection extends StatelessWidget {
                       label: 'Screenshot ${index + 1}',
                       image: true,
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(20),
                         child: Container(
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: const Color(0xFF1E293B),
+                              color: const Color(0x33FFFFFF),
                               width: 1.5,
                             ),
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withAlpha(120),
+                                blurRadius: 12,
+                                offset: const Offset(0, 6),
+                              ),
+                            ],
                           ),
                           child: Image.asset(
                             screenshotPath,
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) => Container(
                               width: 150,
-                              color: const Color(0xFF131826),
+                              color: const Color(0xFF1E293B),
                               child: const Icon(
                                 Icons.image_not_supported,
                                 color: Colors.white24,
