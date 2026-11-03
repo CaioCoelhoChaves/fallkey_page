@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,6 +8,7 @@ import 'pages/privacy_policy_page.dart';
 import 'pages/sports_merge_support_page.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(const FallKeyApp());
 }
 
@@ -15,7 +17,7 @@ class FallKeyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // GoRouter configuration with Hash Routing (default for web)
+    // GoRouter configuration with Path URL Strategy
     final GoRouter router = GoRouter(
       routes: <RouteBase>[
         GoRoute(
