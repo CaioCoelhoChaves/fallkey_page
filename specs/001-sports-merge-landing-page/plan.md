@@ -160,21 +160,21 @@ flowchart TD
 
 - [ ] `pubspec.yaml`
 - [ ] `lib/main.dart`
-- [ ] `lib/pages/sports_merge/sports_merge_page.dart`
-- [ ] `lib/pages/sports_merge/models/sports_merge_content.dart`
-- [ ] `lib/pages/sports_merge/widgets/components/language_selector.dart`
-- [ ] `lib/pages/sports_merge/widgets/components/store_badge_button.dart`
-- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_hero_section.dart`
-- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_media_section.dart`
-- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_features_section.dart`
-- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart`
-- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_footer_section.dart`
-- [ ] `assets/sports_merge/icon.png`
-- [ ] `assets/sports_merge/poster.jpeg`
-- [ ] `assets/sports_merge/badges/google_play_badge.png`
-- [ ] `assets/sports_merge/badges/apple_store_badge.png`
-- [ ] `test/pages/sports_merge/sports_merge_content_test.dart`
-- [ ] `test/pages/sports_merge/sports_merge_page_test.dart`
+- [ ] `lib/pages/sports_merge/sports_merge_page.dart` (novo)
+- [ ] `lib/pages/sports_merge/models/sports_merge_content.dart` (novo)
+- [ ] `lib/pages/sports_merge/widgets/components/language_selector.dart` (novo)
+- [ ] `lib/pages/sports_merge/widgets/components/store_badge_button.dart` (novo)
+- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_hero_section.dart` (novo)
+- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_media_section.dart` (novo)
+- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_features_section.dart` (novo)
+- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_store_badges_section.dart` (novo)
+- [ ] `lib/pages/sports_merge/widgets/sections/sports_merge_footer_section.dart` (novo)
+- [ ] `assets/sports_merge/icon.png` (novo)
+- [ ] `assets/sports_merge/poster.jpeg` (novo)
+- [ ] `assets/sports_merge/badges/google_play_badge.png` (novo)
+- [ ] `assets/sports_merge/badges/apple_store_badge.png` (novo)
+- [ ] `test/pages/sports_merge/sports_merge_content_test.dart` (novo)
+- [ ] `test/pages/sports_merge/sports_merge_page_test.dart` (novo)
 
 ---
 
