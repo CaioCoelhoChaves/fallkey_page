@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en" data-current-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Merge - Support & Customer Assistance | FallKey</title>
+    <meta name="description" content="Official customer support and player assistance for Sports Merge on iOS. Frequently asked questions, troubleshooting, and direct developer contact.">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sports Merge - Support | FallKey">
+    <meta property="og:description" content="Official customer support and player assistance for Sports Merge on iOS.">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(65, 105, 225, 0.4);
+            --primary-accent: #4169e1;
+            --secondary-accent: #8a2be2;
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --text-subtle: #70757d;
+            --glow-color: rgba(65, 105, 225, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Subtle Background Glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow-color) 0%, rgba(138, 43, 226, 0.08) 50%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Language-specific visibility rules */
+        html[data-current-lang="en"] .lang-pt {
+            display: none !important;
+        }
+        html[data-current-lang="pt"] .lang-en {
+            display: none !important;
+        }
+
+        /* Container */
+        .page-container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 20px 80px 20px;
+            width: 100%;
+        }
+
+        /* Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0 32px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 40px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .brand-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 30%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Language Toggle Switcher */
+        .lang-switch {
+            display: flex;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: #ffffff;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: #ffffff;
+            box-shadow: 0 2px 10px rgba(65, 105, 225, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(65, 105, 225, 0.12);
+            border: 1px solid rgba(65, 105, 225, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #79a1ff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 40%, #b8c4d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Quick Support Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .card:hover {
+            border-color: var(--card-hover-border);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(65, 105, 225, 0.15);
+            border: 1px solid rgba(65, 105, 225, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .card p {
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            opacity: 0.95;
+            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
+
+        /* Section Headings */
+        .section-header {
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .section-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Accordion / FAQ */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .faq-item[open] {
+            border-color: rgba(65, 105, 225, 0.35);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .faq-question {
+            padding: 18px 22px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            list-style: none;
+        }
+
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item[open] .faq-question::after {
+            content: '−';
+            color: #79a1ff;
+        }
+
+        .faq-answer {
+            padding: 0 22px 20px 22px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 14px;
+        }
+
+        .faq-answer strong {
+            color: #ffffff;
+        }
+
+        .faq-answer ol, .faq-answer ul {
+            padding-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 6px;
+        }
+
+        /* App Details Box */
+        .app-meta-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .meta-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-subtle);
+            font-weight: 600;
+        }
+
+        .meta-val {
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .copyright {
+            font-size: 0.825rem;
+            color: var(--text-subtle);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e2430;
+            border: 1px solid rgba(65, 105, 225, 0.5);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .page-container {
+                padding: 16px 16px 60px 16px;
+            }
+            header {
+                padding-bottom: 20px;
+                margin-bottom: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header>
+            <a href="/" class="brand-logo">
+                <img src="../../favicon.png" alt="FallKey Logo">
+                <span class="brand-title">FallKey</span>
+            </a>
+            <div class="lang-switch" role="group" aria-label="Language Selector">
+                <button id="btn-en" class="lang-btn active" onclick="setLanguage('en', true)">English</button>
+                <button id="btn-pt" class="lang-btn" onclick="setLanguage('pt', true)">Português</button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="app-badge">
+                <span>⚽ 🏀 🎾</span>
+                <span class="lang-en">Apple App Store Support</span>
+                <span class="lang-pt">Suporte Apple App Store</span>
+            </div>
+            
+            <h1 class="lang-en">Sports Merge Support</h1>
+            <h1 class="lang-pt">Suporte do Sports Merge</h1>
+
+            <p class="lang-en">
+                Official player assistance, troubleshooting, guides, and customer care for <strong>Sports Merge</strong> on iPhone and iPad.
+            </p>
+            <p class="lang-pt">
+                Assistência oficial aos jogadores, resolução de problemas, guias e suporte ao cliente do <strong>Sports Merge</strong> para iPhone e iPad.
+            </p>
+        </section>
+
+        <!-- Quick Contact Cards -->
+        <div class="cards-grid">
+            <!-- Card 1: Direct Email -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">✉️</div>
+                    <h3 class="lang-en">Email Support</h3>
+                    <h3 class="lang-pt">Suporte por E-mail</h3>
+                    <p class="lang-en">Have a question or need assistance? Reach out to our developer team directly. We typically reply within 24 to 48 hours.</p>
+                    <p class="lang-pt">Tem alguma dúvida ou precisa de ajuda? Fale diretamente com nossa equipe. Respondemos normalmente em 24 a 48 horas.</p>
+                </div>
+                <a href="mailto:caiocoelhochaves@gmail.com?subject=Sports%20Merge%20iOS%20Support" class="btn">
+                    <span class="lang-en">Contact via Email</span>
+                    <span class="lang-pt">Enviar E-mail</span>
+                </a>
+            </div>
+
+            <!-- Card 2: Bug Report -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🐛</div>
+                    <h3 class="lang-en">Report a Bug</h3>
+                    <h3 class="lang-pt">Relatar um Problema</h3>
+                    <p class="lang-en">Encountered an unexpected issue or glitch? Please include your device model (e.g. iPhone 15), iOS version, and steps to reproduce.</p>
+                    <p class="lang-pt">Encontrou algum erro ou travamento? Por favor inclua o modelo do aparelho (ex: iPhone 15), versão do iOS e o que aconteceu.</p>
+                </div>
+                <button class="btn btn-outline" onclick="copySupportEmail()">
+                    <span class="lang-en" id="copy-text-en">Copy Support Email</span>
+                    <span class="lang-pt" id="copy-text-pt">Copiar E-mail de Suporte</span>
+                </button>
+            </div>
+
+            <!-- Card 3: Privacy & Policies -->
+            <div class="card">
+                <div>
+                    <div class="card-icon">🔒</div>
+                    <h3 class="lang-en">Privacy & Policies</h3>
+                    <h3 class="lang-pt">Privacidade & Termos</h3>
+                    <p class="lang-en">Learn how we protect your personal data, what third-party services are utilized, and our terms of service.</p>
+                    <p class="lang-pt">Saiba como protegemos seus dados, quais serviços terceiros são utilizados e conheça nossos termos de uso.</p>
+                </div>
+                <a href="/sports-merge/privacy" class="btn btn-outline">
+                    <span class="lang-en">Read Privacy Policy</span>
+                    <span class="lang-pt">Ver Política de Privacidade</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="section-header">
+            <h2 class="lang-en">Frequently Asked Questions</h2>
+            <h2 class="lang-pt">Perguntas Frequentes (FAQ)</h2>
+            <p class="lang-en">Find quick answers to the most common questions regarding gameplay, purchases, and audio.</p>
+            <p class="lang-pt">Encontre respostas rápidas para as dúvidas mais comuns sobre jogabilidade, compras e som.</p>
+        </div>
+
+        <div class="faq-list">
+            <!-- FAQ 1: How to Play -->
+            <details class="faq-item" open>
+                <summary class="faq-question">
+                    <span class="lang-en">How do I play Sports Merge?</span>
+                    <span class="lang-pt">Como jogar o Sports Merge?</span>
+                </summary>
+                <div class="faq-answer">
+                    <div class="lang-en">
+                        <p><strong>Sports Merge</strong> is a physics-based merge puzzle game:</p>
+                        <ol>
+                            <li>Drag your finger across the top to aim, and release to drop sports balls into the container.</li>
+                            <li>When two matching sports balls collide, they merge into the next larger ball (for instance, Table Tennis merges into Tennis, then Baseball, Volleyball, Soccer, Basketball, and ultimately the Championship Trophy).</li>
+                            <li>Keep merging to achieve higher scores, but be careful not to let balls overflow over the top limit!</li>
+                        </ol>
+                    </div>
+                    <div class="lang-pt">
+                        <p><strong>Sports Merge</strong> é um jogo de quebra-cabeça com física:</p>
+                        <ol>
+                            <li>Arraste o dedo no topo da tela para mirar e solte para deixar a bola cair no recipiente.</li>
+                            <li>Quando duas bolas esportivas iguais se tocam, elas se fundem na próxima bola maior (por exemplo, Pingue-pongue vira Tênis, depois Beisebol, Vôlei, Futebol, Basquete e até o Troféu Campeão).</li>
+                            <li>Continue combinando para bater seus recordes, tomando cuidado para não transbordar a linha superior do recipiente!</li>
+                        </ol>
+                    </div>
+                </div>
+            </details>
+
+            <!-- FAQ 2: Sound & Audio -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span class="lang-en">The game has no sound or music. How can I fix this?</span>
+                    <span class="lang-pt">O jogo está sem som ou música. Como resolver?</span>
+                </summary>
+                <div class="faq-answer">
+                    <div class="lang-en">
+                        <p>If you cannot hear any background music or sound effects, check the following:</p>
+                        <ul>
+                            <li><strong>Hardware Silent Switch:</strong> Verify that the physical Ring/Silent switch on the side of your iPhone (or the Action Button) is not set to Silent mode. iOS games typically mute audio when Silent mode is active.</li>
+                            <li><strong>Control Center Volume:</strong> Swipe down from the top right of your screen to ensure device media volume is turned up.</li>
+                            <li><strong>In-Game Settings:</strong> Open the in-game Settings menu and verify that both Music and SFX toggles are enabled.</li>
+                            <li><strong>Bluetooth Devices:</strong> If you recently disconnected AirPods or headphones, try restarting the app.</li>
+                        </ul>
+                    </div>
+                    <div class="lang-pt">
+                        <p>Se você não estiver ouvindo a música ou os efeitos sonoros, verifique os passos abaixo:</p>
+                        <ul>
+                            <li><strong>Chave de Silencioso física:</strong> Verifique se a chave lateral de Silencioso do seu iPhone (ou Botão de Ação) não está ativada no modo silencioso. Jogos no iOS respeitam essa chave por padrão.</li>
+                            <li><strong>Volume na Central de Controle:</strong> Deslize o dedo do canto superior direito para confirmar que o volume de mídia está alto.</li>
+                            <li><strong>Configurações do Jogo:</strong> Acesse as configurações no menu do jogo e certifique-se de que a Música e os Efeitos Sonoros (SFX) estão ativados.</li>
+                            <li><strong>Dispositivos Bluetooth:</strong> Se desconectou AirPods ou fones recentemente, feche o jogo e abra-o novamente.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
+
+            <!-- FAQ 3: Restore Purchases -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span class="lang-en">How do I restore in-app purchases or remove ads?</span>
+                    <span class="lang-pt">Como restauro compras ou removo anúncios?</span>
+                </summary>
+                <div class="faq-answer">
+                    <div class="lang-en">
+                        <p>If you purchased the "Remove Ads" option and reinstalled the game or transferred to a new device:</p>
+                        <ol>
+                            <li>Open Sports Merge on your Apple device.</li>
+                            <li>Tap the <strong>Settings</strong> icon on the main screen.</li>
+                            <li>Tap the <strong>"Restore Purchases"</strong> button.</li>
+                            <li>Make sure you are logged in to the same Apple ID you used for the original purchase. You will never be charged twice for non-consumable items.</li>
+                        </ol>
+                    </div>
+                    <div class="lang-pt">
+                        <p>Se você comprou a opção "Remover Anúncios" e reinstalou o jogo ou trocou de aparelho:</p>
+                        <ol>
+                            <li>Abra o Sports Merge no seu dispositivo Apple.</li>
+                            <li>Toque no ícone de <strong>Configurações</strong> na tela inicial.</li>
+                            <li>Toque no botão <strong>"Restaurar Compras"</strong>.</li>
+                            <li>Certifique-se de estar conectado com o mesmo ID Apple usado na compra. Você nunca será cobrado novamente por itens não-consumíveis.</li>
+                        </ol>
+                    </div>
+                </div>
+            </details>
+
+            <!-- FAQ 4: High Scores & Offline Play -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span class="lang-en">Can I play offline? How are my high scores saved?</span>
+                    <span class="lang-pt">Posso jogar offline? Como meus recordes são salvos?</span>
+                </summary>
+                <div class="faq-answer">
+                    <div class="lang-en">
+                        <p>Yes, Sports Merge can be enjoyed completely offline without an active internet connection. Your current game state and high scores are saved locally on your device storage. When connected to the internet, your best scores automatically sync with Apple Game Center leaderboards.</p>
+                    </div>
+                    <div class="lang-pt">
+                        <p>Sim, o Sports Merge pode ser jogado totalmente offline sem conexão com a internet. O estado da partida e seu recorde pessoal são salvos localmente na memória do dispositivo. Ao conectar à internet, suas melhores pontuações sincronizam com o placar do Apple Game Center.</p>
+                    </div>
+                </div>
+            </details>
+
+            <!-- FAQ 5: App Performance / Crashes -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span class="lang-en">The app is lagging, freezing, or crashing. What should I do?</span>
+                    <span class="lang-pt">O aplicativo está travando ou fechando sozinho. O que fazer?</span>
+                </summary>
+                <div class="faq-answer">
+                    <div class="lang-en">
+                        <ol>
+                            <li><strong>Force close and relaunch:</strong> Swipe up from the bottom of your screen to open the iOS App Switcher, swipe Sports Merge away, and reopen it.</li>
+                            <li><strong>Check for updates:</strong> Visit the App Store to ensure you have installed the latest release of Sports Merge.</li>
+                            <li><strong>Restart device:</strong> A simple device reboot clears cached memory and resolves most memory pressure issues.</li>
+                            <li><strong>Contact us:</strong> If a specific issue persists, email us at <a href="mailto:caiocoelhochaves@gmail.com" style="color: #79a1ff;">caiocoelhochaves@gmail.com</a> detailing when the crash occurs.</li>
+                        </ol>
+                    </div>
+                    <div class="lang-pt">
+                        <ol>
+                            <li><strong>Forçar o encerramento:</strong> Deslize de baixo para cima para abrir o seletor de aplicativos do iOS, arraste o Sports Merge para cima para fechá-lo e abra-o novamente.</li>
+                            <li><strong>Atualizações na App Store:</strong> Verifique na App Store se você está com a versão mais recente do jogo instalada.</li>
+                            <li><strong>Reiniciar o aparelho:</strong> Reiniciar o iPhone ou iPad libera a memória RAM e resolve a maioria dos problemas de lentidão.</li>
+                            <li><strong>Fale conosco:</strong> Caso o travamento persista em um momento específico, envie um e-mail para <a href="mailto:caiocoelhochaves@gmail.com" style="color: #79a1ff;">caiocoelhochaves@gmail.com</a> com detalhes.</li>
+                        </ol>
+                    </div>
+                </div>
+            </details>
+
+            <!-- FAQ 6: Data Privacy / Reset -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span class="lang-en">How do I reset my data or request deletion?</span>
+                    <span class="lang-pt">Como redefinir meus dados ou solicitar exclusão?</span>
+                </summary>
+                <div class="faq-answer">
+                    <div class="lang-en">
+                        <p>Sports Merge does not require registration or account creation and does not collect personal identity information on developer servers. Your gameplay data resides locally on your device. To completely reset all local game data, simply delete and reinstall the app from the App Store. For any inquiries regarding data protection, consult our <a href="/sports-merge/privacy" style="color: #79a1ff;">Privacy Policy</a>.</p>
+                    </div>
+                    <div class="lang-pt">
+                        <p>O Sports Merge não exige cadastro ou criação de conta e não armazena dados de identificação pessoal em servidores próprios. Os dados do jogo residem localmente no seu aparelho. Para zerar completamente seu progresso e dados locais, basta excluir e reinstalar o jogo pela App Store. Para mais informações, consulte nossa <a href="/sports-merge/privacy" style="color: #79a1ff;">Política de Privacidade</a>.</p>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Application Metadata Section -->
+        <div class="section-header">
+            <h2 class="lang-en">Application Information</h2>
+            <h2 class="lang-pt">Informações do Aplicativo</h2>
+        </div>
+
+        <div class="app-meta-box">
+            <div class="meta-field">
+                <span class="meta-label lang-en">Application</span>
+                <span class="meta-label lang-pt">Aplicativo</span>
+                <span class="meta-val">Sports Merge</span>
+            </div>
+            <div class="meta-field">
+                <span class="meta-label lang-en">Developer</span>
+                <span class="meta-label lang-pt">Desenvolvedor</span>
+                <span class="meta-val">Caio Chaves / FallKey</span>
+            </div>
+            <div class="meta-field">
+                <span class="meta-label lang-en">Platform</span>
+                <span class="meta-label lang-pt">Plataforma</span>
+                <span class="meta-val">iOS & iPadOS (13.0+)</span>
+            </div>
+            <div class="meta-field">
+                <span class="meta-label lang-en">Support Email</span>
+                <span class="meta-label lang-pt">E-mail de Suporte</span>
+                <span class="meta-val">caiocoelhochaves@gmail.com</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="/" class="lang-en">Home</a>
+                <a href="/" class="lang-pt">Início</a>
+
+                <a href="/sports-merge/privacy" class="lang-en">Privacy Policy</a>
+                <a href="/sports-merge/privacy" class="lang-pt">Política de Privacidade</a>
+
+                <a href="/policies/sports_merge/terms.html" class="lang-en">Terms &amp; Conditions</a>
+                <a href="/policies/sports_merge/terms.html" class="lang-pt">Termos e Condições</a>
+            </div>
+            <div class="copyright">
+                &copy; <span id="year">2026</span> FallKey. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Feedback Toast -->
+    <div id="toast" class="toast">
+        <span class="lang-en">Support email copied to clipboard!</span>
+        <span class="lang-pt">E-mail de suporte copiado!</span>
+    </div>
+
+    <script>
+        // Language management
+        function getInitialLanguage() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const langParam = params.get('lang');
+                if (langParam) {
+                    const clean = langParam.toLowerCase();
+                    if (clean === 'pt' || clean.startsWith('pt-') || clean.startsWith('pt_')) {
+                        return 'pt';
+                    }
+                }
+            } catch (e) {
+                console.warn('URLSearchParams error:', e);
+            }
+            // Default to English as required by Apple App Store
+            return 'en';
+        }
+
+        function setLanguage(lang, updateUrl) {
+            const selected = (lang === 'pt') ? 'pt' : 'en';
+            document.documentElement.setAttribute('data-current-lang', selected);
+            document.documentElement.setAttribute('lang', selected === 'pt' ? 'pt-BR' : 'en-US');
+
+            const btnEn = document.getElementById('btn-en');
+            const btnPt = document.getElementById('btn-pt');
+            if (btnEn && btnPt) {
+                btnEn.classList.toggle('active', selected === 'en');
+                btnPt.classList.toggle('active', selected === 'pt');
+            }
+
+            // Update title dynamically
+            if (selected === 'pt') {
+                document.title = 'Sports Merge - Suporte e Assistência ao Jogador | FallKey';
+            } else {
+                document.title = 'Sports Merge - Support & Customer Assistance | FallKey';
+            }
+
+            if (updateUrl) {
+                try {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('lang', selected);
+                    window.history.replaceState({}, '', url.toString());
+                } catch (e) {
+                    console.warn('Could not update URL:', e);
+                }
+            }
+        }
+
+        // Copy support email helper
+        function copySupportEmail() {
+            const email = 'caiocoelhochaves@gmail.com';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(showToast);
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = email;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                showToast();
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2500);
+            }
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = getInitialLanguage();
+            setLanguage(lang, false);
+            const yearSpan = document.getElementById('year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
